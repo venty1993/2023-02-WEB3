@@ -78,16 +78,16 @@ querySelector 방식의 차이는 무엇이냐?
 단톡방에 다 들어가있고
 다 아는사람이야..
 
-5년전에는 이솔.멘사회원 이었다.
+5년전에는 이솔.멘보샤회원 이었다.
 근데 지금은 이솔 이다.
 
-querySelector('.멘사회원');
+querySelector('.멘보샤회원');
 
 -> '이솔'에 집중한다.
 
-getElementsByClassName('멘사회원');
+getElementsByClassName('멘보샤회원');
 
--> '.멘사회원' 에 집중한다.
+-> '.멘보샤회원' 에 집중한다.
 
 
 
