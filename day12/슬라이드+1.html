@@ -75,18 +75,19 @@
         const slideWrapper = document.querySelector('.slide-contents-wrapper');
         const nextButton = document.getElementById('next');
         const prevButton = document.getElementById('prev');
-        let index = 0;
+        let index = 1;
 
         nextButton.addEventListener('click', 다음);
         prevButton.addEventListener('click', 이전);
 
         // 첫번째 자식을 복사해서 마지막에 넣기
         const firstClone = slideWrapper.firstElementChild.cloneNode(true);
+        const lastClone = slideWrapper.lastElementChild.cloneNode(true);
         slideWrapper.appendChild(firstClone);
-
+        slideWrapper.insertBefore(lastClone, slideWrapper.firstElementChild)
         // 마지막 슬라이드에 도달했을때 트랜지션을 0으로 만들고 tranlateX를 바꾸는것
 
-
+        적용();
 
 
         // 다음버튼을 누르면 트랜지션을 0.7로 넣고
@@ -110,7 +111,7 @@
             index++;
             if (index === slideWrapper.childElementCount - 1) {
                 setTimeout(() => {
-                    index = 0;
+                    index = 1;
                     적용();
                 }, 500);
             }
@@ -121,8 +122,11 @@
         function 이전() {
             slideTransition();
             index--;
-            if (index === -1) {
-                index = slideWrapper.childElementCount - 1;
+            if (index === 0) {
+                setTimeout(() => {
+                    index = slideWrapper.childElementCount - 2;
+                    적용();
+                }, 500);
             }
             적용();
         }
