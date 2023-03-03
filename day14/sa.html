@@ -69,7 +69,7 @@
             // 위 메서드는 객체의 높이나 너비, 상대적인 위치를 반환 해준다.
             // 여기에 추가로 window.innerHeight 라는 프로퍼티가 있다.
             // 내가 지금 보고있는 윈도우창 내부의 높이 값이다.
-            if (sa.getBoundingClientRect().top < 0 + window.innerHeight) {
+            if (sa.getBoundingClientRect().top < window.innerHeight) {
                 viewContents();
             } else {
                 hideContents();
