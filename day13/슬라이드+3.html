@@ -127,6 +127,22 @@
         <button class="next">다음</button>
     </div>
 
+    <div class="big-slider">
+        <div class="slide-container">
+            <ul class="slide-contents-wrapper">
+
+                <li class="slide-content">1</li>
+                <li class="slide-content">2</li>
+                <li class="slide-content">3</li>
+                <li class="slide-content">4</li>
+                <li class="slide-content">5</li>
+                <!-- 여기에 복사본 추가 -->
+            </ul>
+        </div>
+        <button class="prev">이전</button>
+        <button class="next">다음</button>
+    </div>
+
 
 
 
@@ -136,6 +152,9 @@
 
         // 클래스를 이용해 html 객체들을 가져온다.
         // 묶음형태로 가져와진다.
+
+        const bigSlider = document.querySelector('.big-slider');
+        makeSlider(bigSlider);
 
         const sliders = document.getElementsByClassName('slider');
         // html 안에있는 슬라이더의 갯수만큼 반복
