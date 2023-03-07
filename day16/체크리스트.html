@@ -78,7 +78,6 @@
         #to-do-list {
             display: flex;
             flex-direction: column;
-            gap: 8px;
         }
 
         .to-do-list-content {
@@ -87,6 +86,11 @@
             width: 100%;
             align-items: center;
             gap: 8px;
+        }
+
+        .list-day {
+            flex-shrink: 0;
+            color: #aaa;
         }
 
 
@@ -118,11 +122,56 @@
                 <li class="to-do-list-content">
                     <input type="checkbox">
                     <p class="list-text">야채 사오기</p>
+                    <p class="list-day">2023-03-07</p>
                     <button href="#" class="del-button">삭제</button>
                 </li>
             </ul>
         </div>
     </div>
+    <script>
+
+        const ul = document.getElementById('to-do-list');
+        const addButton = document.getElementById('add-button');
+        const taskInput = document.getElementById('add-input');
+
+        addButton.addEventListener('click', () => {
+            makeList();
+        })
+
+
+        function makeList() {
+            const time = new Date();
+            const date = `${time.getFullYear()}-${time.getMonth() + 1}-${time.getDate()}`
+
+            const li = document.createElement('li');
+            const input = document.createElement('input');
+            const pText = document.createElement('p');
+            const pDay = document.createElement('p');
+            const button = document.createElement('button');
+
+            li.appendChild(input);
+            li.appendChild(pText);
+            li.appendChild(pDay);
+            li.appendChild(button);
+
+            li.classList.add('to-do-list-content');
+            input.setAttribute('type', 'checkbox');
+            pText.classList.add('list-text');
+            pDay.classList.add('list-day');
+            button.classList.add('del-button');
+
+            pText.innerText = taskInput.value;
+            pDay.innerText = date
+            button.innerText = '삭제'
+
+            ul.appendChild(li);
+
+            taskInput.value = '';
+        }
+
+
+
+    </script>
 </body>
 
 </html>
